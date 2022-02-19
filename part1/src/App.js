@@ -20,13 +20,16 @@ const App = () => {
         exercises: 14,
       },
     ],    
-  }; 
+  };
+  let sum = 0
+  course.parts.forEach((part) => sum += part.exercises)
+  console.log(sum) 
 
   return (
     <div>
       <Header course={course.name} />
       <Content parts={course.parts} />
-      <Total parts={course.parts} />
+      <Total total={sum} />
     </div>
   );
 };
