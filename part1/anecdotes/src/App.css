@@ -1,0 +1,12 @@
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 2rem auto;
+}
+
+.btn-random {
+  width: 20%;
+  margin: 1rem auto;
+}
