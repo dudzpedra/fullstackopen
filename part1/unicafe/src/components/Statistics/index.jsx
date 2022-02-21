@@ -6,12 +6,26 @@ const Statistics = (props) => {
     return (
       <div>
         <Header text="Statistics" />
-        <StatisticLine text='Good' value={props.good} />
-        <StatisticLine text='Neutral' value={props.neutral} />
-        <StatisticLine text='Bad' value={props.bad} />
-        <StatisticLine text='All' value={props.all} />
-        <StatisticLine text='Average' value={props.avg} />
-        <StatisticLine text='Positive' value={props.positive} />
+        <table>
+          <tr>
+            <StatisticLine text="Good" value={props.good} />
+          </tr>
+          <tr>
+            <StatisticLine text="Neutral" value={props.neutral} />
+          </tr>
+          <tr>
+            <StatisticLine text="Bad" value={props.bad} />
+          </tr>
+          <tr>
+            <StatisticLine text="All" value={props.all} />
+          </tr>
+          <tr>
+            <StatisticLine text="Average" value={props.avg} />
+          </tr>
+          <tr>
+            <StatisticLine text="Positive" value={props.positive} />
+          </tr>
+        </table>
       </div>
     );
   }
