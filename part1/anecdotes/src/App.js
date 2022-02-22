@@ -1,6 +1,7 @@
 import "./App.css";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Title from "./components/Title";
 
 const App = () => {
   const anecdotes = [
@@ -15,22 +16,29 @@ const App = () => {
 
   const [selected, setSelected] = useState(0);
   const [votes, setVotes] = useState(new Array(anecdotes.length).fill(0));
-  console.log(votes)
-
+  const [mostVoted, setMostVoted] = useState(0)
+  
   const setRandom = () => {
     const randomValue = Math.random() * anecdotes.length;
     setSelected(randomValue.toFixed(0));
   };
-
+  
   const handleVote = () => {
-    const copy = [...votes]
-    copy[selected]++
-    setVotes(copy)
+    const copy = [...votes];
+    copy[selected]++;
+
+    const max = Math.max(...copy)
+    const maxIndex = copy.indexOf(max)
+    
+    setVotes(copy);
+    setMostVoted(maxIndex)
   };
+  
 
   return (
     <div className="App">
-      {anecdotes[selected]}
+      <Title text="Anecdote of the day" />
+      <p>{anecdotes[selected]}</p>
       <p> has {votes[selected]} votes</p>
       <div>
         <button className="btn-random" onClick={handleVote}>
@@ -40,6 +48,9 @@ const App = () => {
           Random Anecdote
         </button>
       </div>
+      <Title text='Most voted Anecdote' />
+      <p>{anecdotes[mostVoted]}</p>
+      <p> has {votes[mostVoted]} votes</p>
     </div>
   );
 };
