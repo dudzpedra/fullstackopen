@@ -29,7 +29,12 @@ const App = () => {
     ]
   }
 
-  return <Course course={course} />
+  const sum = course.parts.reduce((total, part) => {
+    return total + part.exercises
+  }, 0)
+  console.log('sum: ', sum)
+
+  return <Course course={course} sum={sum} />
 }
 
 export default App;
