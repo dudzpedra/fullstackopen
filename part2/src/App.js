@@ -29,9 +29,11 @@ const App = () => {
     ]
   }
 
-  const sum = course.parts.reduce((total, part) => {
+  const sumReducer = (total, part) => {
     return total + part.exercises
-  }, 0)
+  }
+  
+  const sum = course.parts.reduce(sumReducer, 0)
   console.log('sum: ', sum)
 
   return <Course course={course} sum={sum} />
