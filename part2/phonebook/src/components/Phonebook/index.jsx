@@ -1,6 +1,6 @@
 import Form from "../Form";
 
-const Phonebook = ({ persons, setPersons, newName, setNewName, newPhone, setNewPhone }) => {
+const Phonebook = ({ persons, setPersons, newName, setNewName, newPhone, setNewPhone, newSearch, setNewSearch }) => {
   return (
     <div>
       <Form
@@ -10,6 +10,8 @@ const Phonebook = ({ persons, setPersons, newName, setNewName, newPhone, setNewP
         setNewName={setNewName}
         newPhone={newPhone}
         setNewPhone={setNewPhone}
+        newSearch={newSearch}
+        setNewSearch={setNewSearch}
       />
     </div>
   );

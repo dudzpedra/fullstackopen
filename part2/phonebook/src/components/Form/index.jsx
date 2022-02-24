@@ -1,3 +1,5 @@
+import Title from "../Title";
+
 const Form = ({
   persons,
   setPersons,
@@ -5,6 +7,8 @@ const Form = ({
   setNewName,
   newPhone,
   setNewPhone,
+  newSearch,
+  setNewSearch
 }) => {
   const addName = (event) => {
     event.preventDefault();
@@ -22,7 +26,7 @@ const Form = ({
     } else {
       setPersons(persons.concat(newPerson));
       setNewName("");
-      setNewPhone("")
+      setNewPhone("");
     }
   };
   const handleName = (event) => {
@@ -31,13 +35,24 @@ const Form = ({
 
   const handlePhone = (event) => setNewPhone(event.target.value);
 
+  const handleSearch = (event) => {
+    setNewSearch(event.target.value);
+    
+  };  
+
   return (
     <form onSubmit={addName}>
       <div>
-        Name: <input type="text" value={newName} onChange={handleName} required />
+        Search: <input type="text" value={newSearch} onChange={handleSearch} />
+      </div>
+      <Title title='Add New Contact'/>
+      <div>
+        Name:{" "}
+        <input type="text" value={newName} onChange={handleName} required />
       </div>
       <div>
-        Number: <input type="number" value={newPhone} onChange={handlePhone} required />
+        Number:{" "}
+        <input type="number" value={newPhone} onChange={handlePhone} required />
       </div>
       <button type="submit">Save</button>
     </form>
