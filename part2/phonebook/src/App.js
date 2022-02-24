@@ -1,20 +1,24 @@
-import { useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Contacts from "./components/Contacts";
 import Phonebook from "./components/Phonebook";
 import Title from "./components/Title";
 
 function App() {
-  const [persons, setPersons] = useState([
-    { name: "Dudz Pedra", phone: "98210-6869", id: 1 },
-    { name: "Maria", phone: "98210-1234", id: 2 },
-    { name: "Benjamin", phone: "98210-5678", id: 3 },
-  ]);
+  const [persons, setPersons] = useState([]);
   const [newName, setNewName] = useState("");
   const [newPhone, setNewPhone] = useState("");
   const [newSearch, setNewSearch] = useState("");
 
   const personsToShow = newSearch === '' ? persons : persons.filter(person => person.name.includes(newSearch))
+
+  useEffect(() => {
+    console.log('effect')
+    const handler = response => setPersons(response.data)
+    const promise = axios.get('http://localhost:3001/persons')
+    promise.then(handler)
+  }, [])
 
   console.log("persons: ", persons);
   console.log('persons to show: ', personsToShow)

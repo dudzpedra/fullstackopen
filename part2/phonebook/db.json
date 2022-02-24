@@ -1,0 +1,7 @@
+{
+    "persons": [
+        { "name": "Dudz Pedra", "phone": "98210-6869", "id": 1 },
+        { "name": "Maria", "phone": "98210-1234", "id": 2 },
+        { "name": "Benjamin", "phone": "98210-5678", "id": 3 }
+      ]
+}
