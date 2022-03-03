@@ -1,3 +1,4 @@
+import axios from "axios";
 import Title from "../Title";
 
 const Form = ({
@@ -10,6 +11,7 @@ const Form = ({
   newSearch,
   setNewSearch
 }) => {
+  const baseUrl = 'http://localhost:3001/persons'
   const addName = (event) => {
     event.preventDefault();
 
@@ -24,9 +26,12 @@ const Form = ({
     if (isContact) {
       alert(`${newName} is already a contact in your list.`);
     } else {
-      setPersons(persons.concat(newPerson));
-      setNewName("");
-      setNewPhone("");
+      axios.post(baseUrl, newPerson).then(res => {
+        console.log(res)
+        setPersons(persons.concat(newPerson));
+        setNewName("");
+        setNewPhone("");
+      })
     }
   };
   const handleName = (event) => {
