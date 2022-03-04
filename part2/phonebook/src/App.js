@@ -1,4 +1,3 @@
-//import axios from "axios";
 import { useEffect, useState } from "react";
 import "./App.css";
 import Contacts from "./components/Contacts";
@@ -16,9 +15,6 @@ function App() {
 
   useEffect(() => {
     personsService.getAll().then(initialState => setPersons(initialState))
-    /* const handler = response => setPersons(response.data)
-    const promise = axios.get('http://localhost:3001/persons')
-    promise.then(handler) */
   }, [])
 
   return (

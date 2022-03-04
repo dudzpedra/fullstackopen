@@ -1,6 +1,7 @@
-import axios from "axios";
 import Title from "../Title";
 import personsService from '../../services/persons.js'
+import { useState } from "react";
+import Notification from "../Notification";
 const Form = ({
   persons,
   setPersons,
@@ -11,6 +12,8 @@ const Form = ({
   newSearch,
   setNewSearch
 }) => {
+  const [notification, setNotification] = useState(null)
+
   const addName = (event) => {
     event.preventDefault();
 
@@ -29,11 +32,9 @@ const Form = ({
         setPersons(persons.concat(returnedPerson))
         setNewName("");
         setNewPhone("");
+        setNotification('Adicionado com sucesso.')
+        setTimeout(() => setNotification(null), 5000)
       })
-      /* axios.post(baseUrl, newPerson).then(res => {
-        console.log(res)
-        setPersons(persons.concat(newPerson));
-      }) */
     }
   };
   const handleName = (event) => {
@@ -62,6 +63,7 @@ const Form = ({
         <input type="number" value={newPhone} onChange={handlePhone} required />
       </div>
       <button type="submit">Save</button>
+      <Notification msg={notification} />
     </form>
   );
 };
