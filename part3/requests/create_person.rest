@@ -2,6 +2,7 @@ POST http://localhost:3001/api/persons
 Content-Type: application/json
 
 {
-    "content": "Testing the randomId function",
-    "important": false
+    "name": "Ricardo Pedra",
+    "number": "98174-5638",
+    "important": true
 }

@@ -71,19 +71,36 @@ const randomId = () => (Math.random() * 10000).toFixed(0)
 app.post('/api/persons', (req, res) => {
     const body = req.body
 
-    if (!body.content) {
+    if (!body.name) {
         return res.status(400).json({
-            error: 'content is missing!'
+            error: 'name is missing!'
         })
     }
+
+    if (!body.number) {
+        return res.status(400).json({
+            error: 'number is missing!'
+        })
+    }
+
     const person = {
-        content: body.content,
+        name: body.name,
+        number: body.number,
         important: body.important || false,
         date: new Date(),
         id: randomId()
     }
+
+    const isContact = persons.find(p => p.name === person.name)
+
+    if (isContact) {
+        return res.status(400).json({
+            error: 'There is already a contact with this name'
+        })
+    } else {
+        persons = persons.concat(person)
+    }
     
-    persons = persons.concat(person)
     res.json(persons)
 })
 
