@@ -1,0 +1,9 @@
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+
+{
+    "title": "How the web works",
+    "author": "Maximiliam Schwarzmüller",
+    "url": "https://academind.com/tutorials/how-the-web-works",
+    "likes": 1313
+}
