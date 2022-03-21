@@ -1,4 +1,3 @@
-import axios from 'axios';
 import style from './Contacts.module.css'
 //import personsService from '../../services/persons.js'
 
