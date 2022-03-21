@@ -1,9 +1,11 @@
 POST http://localhost:3003/api/blogs
 Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3QiLCJpZCI6IjYyMzhhNDY0MGJhZmEyOGI1NGQ0M2I4ZSIsImlhdCI6MTY0Nzg4OTIwMX0.jPV24yvfKy8GJ-jbvG3xjnyBih_hYq6OhRtkPjV0Vp4
 
 {
-    "title": "Neoliberalismo e qualidade da nossa saúde mental: afinal, existe relação?",
-    "author": "Dandara Coêlho",
+    "title": "Using JWT is fun",
+    "author": "University of helsinki",
     "url": "https://elasnopoder.org/blog/neoliberalismo-e-qualidade-da-nossa-saude-mental-afinal-existe-relacao/",
-    "likes": 130
+    "likes": 130,
+    "userId": "6238a5782b4da3383894dbf2"
 }
